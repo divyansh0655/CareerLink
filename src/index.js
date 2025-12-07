@@ -6,20 +6,26 @@ import reportWebVitals from './reportWebVitals';
 import "bootstrap/dist/css/bootstrap.css"
 import CareerlinkCarousel from './components/carousel';
 import CareerlinkNavbar from './components/navbar';
-import CareerlinkFormTable from './components/formtableinteraction';
+import CareerlinkFormTable from './components/formtablecards';
 import Hero from './components/hero';
 import Sidebar from './components/sidebar';
+import Faqs from './components/faqs';
+import Footer from './components/footer';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+        <div id="customRoot">
     <CareerlinkNavbar />
     <Hero />
     <Sidebar />
     <div style={{width:"75vw", position:"absolute", left:"20vw", top:"102vh"}}>
         <CareerlinkCarousel />
         <CareerlinkFormTable />
+        <Faqs />
     </div>
+    </div>
+    <Footer/>
   </React.StrictMode>
 );
 
