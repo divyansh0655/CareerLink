@@ -18,9 +18,11 @@ export default function CareerlinkFormTable(){
         [9, "Shreyam", "Student", "LIT2025020"],
         [10, "Atharva", "Student", "LIT2025014"]
     ]);
+    let [myhover , setHover] = useState([0,0,0,0,0,0,0,0,0,0]);
     let [ id , setId ] = useState(11);
     let updateTable = (name,proff,details) =>{
         setData([...userData, [id, name, proff, details]]);
+        setHover([...myhover,0])
         setId(id+1);
     }
 
@@ -35,11 +37,23 @@ export default function CareerlinkFormTable(){
     let removeCard = (idx) =>{
         setCards(cards.slice(0, idx).concat(cards.slice(idx + 1)))
     }
+    
+    let handleHover = (idx,action) =>{
+        if (action === "enter") {
+            setHover(hover => hover.map((val,indx)=>(indx===idx) ? 1 : val));
+        }
+
+        if (action === "leave") {
+            setHover(hover => hover.map((val,indx)=>(indx===idx) ? 0 : val));
+        }
+        
+    }
     return(
         <>
             <CareerlinkForm addRowData={([name,proff,det])=>{updateTable(name,proff,det)}}/>
             <Container>
-                <Table striped bordered hover style={{textAlign:"center", width:"67vw"}} className="m-4">
+                <Table striped hover style={{textAlign:"center", width:"67vw"}} 
+            className="m-4">
                   <thead>
                     <tr>
                       <th>#</th>
@@ -52,7 +66,7 @@ export default function CareerlinkFormTable(){
                   <tbody>
                             {userData.map((val,idx) => {
                                 return (
-                                <tr>
+                                <tr key = {idx} style={{outline:'none', borderCollapse:"collapse" , borderRadius:"50%",transition:'0.2s linear', transform: ((myhover[idx]) ? "scale(1.05)" : "scale(1)")}} onMouseEnter={() => {handleHover(idx,"enter")}} onMouseLeave={() => {handleHover(idx,"leave")}} className="tablerow">
                                     <th> {val[0]} </th>
                                     <td> {val[1]} </td>
                                     <td> {val[2]} </td>

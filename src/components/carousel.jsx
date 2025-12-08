@@ -3,7 +3,7 @@ import Carousel from 'react-bootstrap/Carousel';
 export default function CareerlinkCarousel() {
   return (
     <div style={{height: "auto", width:"70vw", margin: "4rem", marginLeft:"auto", marginRight:"auto", color:"white"}}>
-      <Carousel>
+      <Carousel style={{overflow:'hidden',backdropFilter:'Blur' , boxShadow:'0  0  60px  rgba(29, 43, 146, 1)' , borderRadius:'30px'}}>
         <Carousel.Item interval={4000}>
           <img
             className="d-block w-100"

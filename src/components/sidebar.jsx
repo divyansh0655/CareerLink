@@ -33,7 +33,7 @@ export default function Sidebar() {
     }
 
     return(
-    <div className="border text-center rounded-3" style={{position:"sticky",width:"17vw", marginLeft:"2vw", height:"50vh", backgroundColor:"rgba(1,1,12,0.6)", left:0, top:"25vh",marginTop:"8rem"}}>
+    <div className="border text-center rounded-3" style={{position:"sticky",width:"17vw", marginLeft:"2vw", height:"50vh", backgroundColor:"rgba(1,1,12,0.6)", left:0, top:"25vh",marginTop:"8rem" , backdropFilter:'blur(10px)' , borderRadius:'12px' , boxShadow:'0 0 30px rgba(30, 49, 145, 1)'}}>
 
         <img src={profileicon} alt="profile image" height={"80px"}/>
 
